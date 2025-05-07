@@ -1,4 +1,5 @@
 django
-pandas numpy
+pandas 
+numpy
 matplotlib
 seaborn

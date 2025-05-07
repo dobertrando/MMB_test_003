@@ -4,6 +4,6 @@
     "features": {
       "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
-    "postCreateCommand": "pip install -r requirements.txt"
+    "postCreateCommand": "pip install -r requirements.txt || echo 'Failed to install requirements'"
   }
   
