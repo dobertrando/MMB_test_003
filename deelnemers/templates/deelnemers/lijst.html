@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deelnemerslijst</title>
+</head>
+<body>
+    <h1>Overzicht van Deelnemers</h1>
+    <ul>
+        {% for deelnemer in deelnemers %}
+            <li>{{ deelnemer.voornaam }} {{ deelnemer.achternaam }}</li>
+        {% empty %}
+            <li>Geen deelnemers gevonden.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
