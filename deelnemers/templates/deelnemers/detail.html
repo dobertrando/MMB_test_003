@@ -1,0 +1,9 @@
+{% load static %}
+
+<h1>{{ deelnemer.voornaam }} {{ deelnemer.achternaam }}</h1>
+<p>Ploeg: {{ deelnemer.ploegnaam }}</p>
+<p>Email: {{ deelnemer.email }}</p>
+{% if deelnemer.foto %}
+  <img src="{{ deelnemer.foto.url }}" alt="Foto van {{ deelnemer.voornaam }}" height="200">
+{% endif %}
+
