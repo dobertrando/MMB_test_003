@@ -12,4 +12,3 @@ from django.shortcuts import get_object_or_404
 def deelnemer_detail(request, deelnemer_id):
     deelnemer = get_object_or_404(Deelnemer, id=deelnemer_id)
     return render(request, 'deelnemers/detail.html', {'deelnemer': deelnemer})
-
