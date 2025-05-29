@@ -4,9 +4,8 @@ from django.db import models
 class Deelnemer(models.Model):
     voornaam = models.CharField(max_length=64)
     achternaam = models.CharField(max_length=64)
+    naamvoornaam = models.CharField(max_length=128, default='Voornaam Achternaam')
     status = models.CharField(max_length=64, default='Actief')
-    ploegnaam = models.CharField(max_length=64)
+    ploegnaam = models.CharField(max_length=64, default='Geen ploegnaam')
     clan = models.CharField(max_length=64, default='Geen clan')
-    email = models.EmailField(unique=True)
-    foto = models.ImageField(upload_to='deelnemers_fotos/', blank=True, null=True)
-    
+

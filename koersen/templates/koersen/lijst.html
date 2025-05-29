@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Overzicht Koersen</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        caption {
+            caption-side: top;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Overzicht van Koersen</caption>
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Niveau</th>
+                <th>Afkorting</th>
+                <th>Land</th>
+                <th>Koersvolgnummer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for koers in koersen %}
+            <tr>
+                <td>{{ koers.naam }}</td>
+                <td>{{ koers.niveau }}</td>
+                <td>{{ koers.afkorting }}</td>
+                <td>{{ koers.land }}</td>
+                <td>{{ koers.koersvolgnummer }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Geen koersen gevonden.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

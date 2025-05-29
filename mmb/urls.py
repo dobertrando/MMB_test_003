@@ -23,7 +23,8 @@ from django.conf.urls.static import static #voor media
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('deelnemers.urls'))
+    path('', include('deelnemers.urls')),
+    path('', include('koersen.urls')),
 
 ]
 if settings.DEBUG:
