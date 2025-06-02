@@ -1,0 +1,44 @@
+{% load static %}
+
+{% block content %}
+  <h1>{{ koers.naam }} ({{ koers.afkorting }})</h1>
+  <p><strong>Land:</strong> {{ koers.land }} | <strong>Niveau:</strong> {{ koers.niveau }}</p>
+
+  <h2>Overzicht per jaar</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Jaar</th>
+        <th>Eerste plaats</th>
+        <th>Tweede plaats</th>
+        <th>Derde plaats</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for editie in edities %}
+        <tr>
+          <td>{{ editie.jaar }}</td>
+          <td>
+            {% for deelnemer in editie.eerste_plaats.all %}
+              {{ deelnemer }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </td>
+          <td>
+            {% for deelnemer in editie.tweede_plaats.all %}
+              {{ deelnemer }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </td>
+          <td>
+            {% for deelnemer in editie.derde_plaats.all %}
+              {{ deelnemer }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">Geen edities gevonden voor deze koers.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

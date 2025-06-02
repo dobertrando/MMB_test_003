@@ -9,3 +9,7 @@ class Deelnemer(models.Model):
     ploegnaam = models.CharField(max_length=64, default='Geen ploegnaam')
     clan = models.CharField(max_length=64, default='Geen clan')
 
+    def __str__(self):
+        return f"{self.voornaam} {self.achternaam}"
+    
+    
