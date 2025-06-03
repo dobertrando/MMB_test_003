@@ -11,6 +11,8 @@ class Koers(models.Model):
     class Meta:
         verbose_name = 'Koers'
         verbose_name_plural = 'Koersen' # voor de admin interface
+    def __str__(self):
+        return f"{self.naam}"
 
 class KoersEditie(models.Model):
     jaar = models.IntegerField()
@@ -22,3 +24,6 @@ class KoersEditie(models.Model):
     derde_plaats = models.ManyToManyField(Deelnemer, related_name='derde_plaats')
     uitslagstatus = models.CharField(max_length=64)
     jaar = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.koers} in {self.jaar}"

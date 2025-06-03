@@ -4,6 +4,29 @@
   <h1>{{ koers.naam }} ({{ koers.afkorting }})</h1>
   <p><strong>Land:</strong> {{ koers.land }} | <strong>Niveau:</strong> {{ koers.niveau }}</p>
 
+  {% if recordhouder %}
+  <h3>🏆 Recordhouder{% if recordhouder|length > 1 %}s{% endif %}: 
+      {% for rh in recordhouder %}
+          {{ rh }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+      met {{ max_wins }} overwinning{% if max_wins > 1 %}en{% endif %}
+    </h3>
+  {% if podiumbeesten %}
+    <h3>🥈 Podiumbeest{% if podiumbeesten|length > 1 %}en{% endif %}:
+      {% for deelnemer in podiumbeesten %}
+        {{ deelnemer }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+      ({{ max_podium }} keer op het podium)
+    </h3>
+  {% else %}
+    <h3>🥈 Nog geen podiumdeelnemers</h3>
+  {% endif %}
+
+
+{% else %}
+  <h3>🏆 Nog geen recordhouder bekend</h3>
+{% endif %}
+
   <h2>Overzicht per jaar</h2>
   <table border="1">
     <thead>
